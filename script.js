@@ -4,6 +4,7 @@ const equalsButtons = document.querySelector('.equals')
 const clearButton = document.getElementById('clear')
 const backspaceButton = document.querySelector('.backspace')
 const display = document.getElementById('display')
+const decimalButton = document.querySelector('.decimal')
 
 //Add event listener to clear button
 clearButton.addEventListener('click', function() {
@@ -72,16 +73,26 @@ function operate(expression) {
 
     // Limit the decimal places to, for example, 2
     result = Math.round(result * 1e6) / 1e6;
+
+    // Apply integer limit (e.g., maximum value of 999999999999)
+    if (result > 999999999999) {
+      return 'Error: Integer Limit';
+    }
+
     return result;
   }
-  
-    // If the expression is invalid, return an error message
-    return 'Error: Invalid Expression';
-  }
+  return 'Error: Invalid Expression';
+}
+
 
 //Add event listener to equals button and display result of operate function
 equalsButtons.addEventListener('click', function() {
     display.textContent = operate(display.textContent)
+})
+
+//Add event listener for decimal button
+decimalButton.addEventListener('click', function() {
+    display.textContent += decimalButton.textContent
 })
 
 

@@ -1,6 +1,7 @@
 * {
     font-family: Roboto, sans-serif;
     background-color: grey;
+    user-select: none;
 }
 button {
     margin: 0;
