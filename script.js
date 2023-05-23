@@ -5,6 +5,7 @@ const clearButton = document.getElementById('clear')
 const backspaceButton = document.querySelector('.backspace')
 const display = document.getElementById('display')
 const decimalButton = document.querySelector('.decimal')
+const percentageButton = document.querySelector('.percent')
 
 //Add event listener to clear button
 clearButton.addEventListener('click', function() {
@@ -93,6 +94,11 @@ equalsButtons.addEventListener('click', function() {
 //Add event listener for decimal button
 decimalButton.addEventListener('click', function() {
     display.textContent += decimalButton.textContent
+})
+
+//Add event listener for percentage button
+percentageButton.addEventListener('click', function() { 
+    display.textContent = display.textContent / 100
 })
 
 
